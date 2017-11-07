@@ -9,11 +9,13 @@ server.use('/assets', express.static('assets'));
 
 server.get('/', (req, res) => {
   const isMobile = true;
-  const appString = renderToString(<App isMobile={isMobile} />);
+  const initialState = { isMobile };
+  const appString = renderToString(<App {...initialState} />);
 
   res.send(template({
     body: appString,
-    title: 'Hello DevPools from the server'
+    title: 'Hello DevPools from the server',
+	initialState: JSON.stringify(initialState)
   }));
 });
 console.log("Server listen port 8080");

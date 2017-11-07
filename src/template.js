@@ -1,9 +1,10 @@
-export default ({ body, title }) => {
+export default ({ body, title, initialState }) => {
   return `
     <!DOCTYPE html>
     <html>
       <head>
         <title>${title}</title>
+		<script>window.__APP_INITIAL_STATE__ = ${initialState}</script>
       </head>
       
       <body>
