@@ -8,7 +8,8 @@ const server = express();
 server.use('/assets', express.static('assets'));
 
 server.get('/', (req, res) => {
-  const appString = renderToString(<App />);
+  const isMobile = true;
+  const appString = renderToString(<App isMobile={isMobile} />);
 
   res.send(template({
     body: appString,
